@@ -1,0 +1,13 @@
+<h3>Student Form:</h3>
+
+<%= form_tag new_student_path, method: 'post' do %>
+    <label>First Name:</label><br>
+    <%= text_field_tag :'student[first_name]', @student.try(:first_name) %><br>
+
+    <label>Last Name:</label><br>
+    <%= text_field_tag :'student[last_name]', @student.try(:last_name) %><br>
+
+    <%= submit_tag "Submit Student" %>
+<% end %>
+
+<p><%= @student.try(:to_s) %></p>
