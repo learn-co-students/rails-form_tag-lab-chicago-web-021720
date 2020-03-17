@@ -8,4 +8,15 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
 
+  def create
+    Student.create(student_params)
+    redirect_to new_student_path
+  end
+  
+  private
+
+  def student_params
+    params.require(:student).permit(:first_name, :last_name)
+  end
+
 end
